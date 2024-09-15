@@ -8,6 +8,11 @@ services:
       - mysql
     networks:
       - my_network
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: techproed
+      MYSQL_PASSWORD: techpro1234
+      MYSQL_DB: bookstore_db
 
   mysql:
     image: mysql:5.7
