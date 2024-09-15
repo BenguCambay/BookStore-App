@@ -6,11 +6,6 @@ services:
       - "80:80"
     depends_on:
       - mysql
-    environment:
-      MYSQL_HOST: mysql
-      MYSQL_USER: techproed
-      MYSQL_PASSWORD: techpro1234
-      MYSQL_DB: bookstore_db
     networks:
       - my_network
 
@@ -23,7 +18,13 @@ services:
       MYSQL_PASSWORD: techpro1234
     networks:
       - my_network
+    volumes:
+      - mysql_data:/var/lib/mysql
 
 networks:
   my_network:
     driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
